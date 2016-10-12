@@ -13,8 +13,18 @@ namespace SoftwareEngineeringP1.Models
 
         public DbSet<Airport> Airports { get; set; }
 
-        public PenguinFlightsDataContext() : base ("DefaultConnection")
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
+
+        public PenguinFlightsDataContext() : base ("PenguinFlightsData")
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 }

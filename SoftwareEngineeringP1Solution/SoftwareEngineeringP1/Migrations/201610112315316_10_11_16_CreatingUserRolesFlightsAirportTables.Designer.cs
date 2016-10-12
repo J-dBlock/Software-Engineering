@@ -7,13 +7,13 @@ namespace SoftwareEngineeringP1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _10716_CreateConnection : IMigrationMetadata
+    public sealed partial class _10_11_16_CreatingUserRolesFlightsAirportTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_10716_CreateConnection));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_10_11_16_CreatingUserRolesFlightsAirportTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610071657093_10-7-16_CreateConnection"; }
+            get { return "201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables"; }
         }
         
         string IMigrationMetadata.Source

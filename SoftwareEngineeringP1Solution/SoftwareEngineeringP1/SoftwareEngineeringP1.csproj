@@ -171,12 +171,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DataAccess\FlightDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610071657093_10-7-16_CreateConnection.cs" />
-    <Compile Include="Migrations\201610071657093_10-7-16_CreateConnection.Designer.cs">
-      <DependentUpon>201610071657093_10-7-16_CreateConnection.cs</DependentUpon>
+    <Compile Include="Migrations\201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.cs" />
+    <Compile Include="Migrations\201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.Designer.cs">
+      <DependentUpon>201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -185,8 +186,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PenguinFlightsDataContext.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="State\StateContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -248,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataAccess\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -262,8 +265,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610071657093_10-7-16_CreateConnection.resx">
-      <DependentUpon>201610071657093_10-7-16_CreateConnection.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.resx">
+      <DependentUpon>201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
