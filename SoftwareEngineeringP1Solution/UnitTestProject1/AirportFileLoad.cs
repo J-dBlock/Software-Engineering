@@ -56,14 +56,5 @@ namespace UnitTestProject1
             FlightDataAccess fda = new FlightDataAccess();
             fda.LoadAirports(airports);
         }
-
-        [TestMethod]
-        public void TestingWTF()
-        {
-            FlightDataAccess fda = new FlightDataAccess();
-            fda.WTF();
-        }
     }
-
-
 }

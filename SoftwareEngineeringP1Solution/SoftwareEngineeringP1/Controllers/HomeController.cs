@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using SoftwareEngineeringP1.DataAccess;
 using SoftwareEngineeringP1.Models;
-using SoftwareEngineeringP1.State;
 
 namespace SoftwareEngineeringP1.Controllers
 {
@@ -13,21 +12,25 @@ namespace SoftwareEngineeringP1.Controllers
     {
         public ActionResult Index()
         {
-            StateContainer.UserId = 34;
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult About()
         {
+            // Example if how to check if a User has the role of Admin.
+            if (User.IsInRole("Admin"))
+            {
+
+            }
             ViewBag.Message = "Your application description page.";
-            ViewBag.StateUser = StateContainer.UserId;
+
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

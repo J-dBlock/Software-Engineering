@@ -10,7 +10,6 @@ namespace SoftwareEngineeringP1.DataAccess
 
     /// <summary>
     /// This is the class for interfacing with the database. All calls get and update objects should be handled through
-    /// 
     /// </summary>
     public class FlightDataAccess
     {
@@ -26,24 +25,6 @@ namespace SoftwareEngineeringP1.DataAccess
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
             return db.Airports.ToList();
-        }
-
-        public List<User> GetUsers()
-        {
-            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
-            return db.Users.ToList();
-        }
-
-        public void WTF()
-        {
-            var user = new User()
-            {
-                Id = 1,
-                Email = "zimmemit@outlook.com"
-            };
-            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
-            db.Users.AddOrUpdate(user);
-            db.SaveChanges();
         }
     }
 }

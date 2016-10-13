@@ -179,18 +179,24 @@
     <Compile Include="Migrations\201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.Designer.cs">
       <DependentUpon>201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610130047342_10_12_16_RemovingUserAndRolesCreatingCorrectAspNetUserRoles.cs" />
+    <Compile Include="Migrations\201610130047342_10_12_16_RemovingUserAndRolesCreatingCorrectAspNetUserRoles.Designer.cs">
+      <DependentUpon>201610130047342_10_12_16_RemovingUserAndRolesCreatingCorrectAspNetUserRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610130101461_10_12_16_AddingpassengersModel.cs" />
+    <Compile Include="Migrations\201610130101461_10_12_16_AddingpassengersModel.Designer.cs">
+      <DependentUpon>201610130101461_10_12_16_AddingpassengersModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Passenger.cs" />
     <Compile Include="Models\PenguinFlightsDataContext.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="State\StateContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -267,6 +273,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.resx">
       <DependentUpon>201610112315316_10_11_16_CreatingUserRolesFlightsAirportTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130047342_10_12_16_RemovingUserAndRolesCreatingCorrectAspNetUserRoles.resx">
+      <DependentUpon>201610130047342_10_12_16_RemovingUserAndRolesCreatingCorrectAspNetUserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610130101461_10_12_16_AddingpassengersModel.resx">
+      <DependentUpon>201610130101461_10_12_16_AddingpassengersModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

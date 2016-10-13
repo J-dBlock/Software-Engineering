@@ -6,11 +6,15 @@ using System.Web;
 
 namespace SoftwareEngineeringP1.Models
 {
-    public class Role
+    public class Passenger
     {
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public int FlightId { get; set; }
+
+        public virtual Flight Flight { get; set; }
+
+        public string UserId { get; set; }
     }
 }

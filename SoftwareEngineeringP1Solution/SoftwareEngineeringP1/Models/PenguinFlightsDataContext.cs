@@ -13,9 +13,8 @@ namespace SoftwareEngineeringP1.Models
 
         public DbSet<Airport> Airports { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Passenger> Passengers { get; set; }
 
-        public DbSet<Role> Roles { get; set; }
 
         public PenguinFlightsDataContext() : base ("PenguinFlightsData")
         {
