@@ -13,7 +13,7 @@ namespace SoftwareEngineeringP1.DataAccess
     /// </summary>
     public class FlightDataAccess
     {
-
+        // DO NOT CALL - Used in a unit test.
         public void LoadAirports(List<Airport> airports)
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
@@ -26,6 +26,33 @@ namespace SoftwareEngineeringP1.DataAccess
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
             return db.Airports.ToList();
         }
+
+        public Airport GetAirportById(int id)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+           return db.Airports.SingleOrDefault(a => a.Id == id);
+        }
+        /// <summary>
+        ///  Returns all of the flights that are located in the database. 
+        /// </summary>
+        /// <returns></returns>
+        public List<Flight> GetAllFlights()
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            return db.Flights.ToList();
+        }
+
+        /// <summary>
+        /// Used to add or update flights into the current database. 
+        /// </summary>
+        /// <param name="flight"></param>
+        public void AddOrUpdateFlight(Flight flight)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            db.Flights.AddOrUpdate(flight);
+            db.SaveChanges();
+        }
+
 
         /// <summary>
         /// based on the user that is logged in, get the flights where that user is a passanger of. 

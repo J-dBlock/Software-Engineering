@@ -20,8 +20,12 @@ namespace SoftwareEngineeringP1.Models
 
         public DateTime ArrivalTime { get; set; }
 
-        public int SourceAirportId { get; set; }
+        public bool Status { get; set; }
 
+        public double Price { get; set; }
+
+        public int SourceAirportId { get; set; }
+        
         public virtual Airport SourceAirport { get; set; }
 
         public int DestinationAirportId { get; set; }

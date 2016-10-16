@@ -18,5 +18,10 @@ Values ('[paste the Id column value from your user here]', '1')
 
 
 
+Select a.Id, a.Name, a.Country from Airports a
+where a.Country Like 'United States' and (a.City like '%Paul' or 
+	a.City like '%Minn')
+
+ 
 
 

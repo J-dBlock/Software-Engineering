@@ -56,5 +56,28 @@ namespace UnitTestProject1
             FlightDataAccess fda = new FlightDataAccess();
             fda.LoadAirports(airports);
         }
+
+
+        [TestMethod]
+        public void BuildTestFlights()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 =  fda.GetAirportById(103);
+            var air2 = fda.GetAirportById(104);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 250,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(3),
+                Name = "Random Flight"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
     }
 }

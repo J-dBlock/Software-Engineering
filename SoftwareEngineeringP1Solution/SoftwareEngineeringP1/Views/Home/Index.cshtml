@@ -1,3 +1,25 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model SoftwareEngineeringP1.Models.SearchPageForm
+     
+<form method="post" action="/Home/SearchFlights">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="st-flight" Name="Start" placeholder="Start Location"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="dt-flight" Name="Destination" placeholder="Destination"/>
+                </div>
+                <div class="checkbox">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @{ Html.RenderPartial("~/Views/Home/_Partial/Flights.cshtml", Model.flightResults);}
+    </div>
+</form>

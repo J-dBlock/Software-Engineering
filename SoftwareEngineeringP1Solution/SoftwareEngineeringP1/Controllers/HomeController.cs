@@ -11,9 +11,13 @@ namespace SoftwareEngineeringP1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+       public ActionResult Index(SearchPageForm form)
         {
-            return View();
+            if (form.flightResults == null)
+            {
+                form.flightResults=new List<Flight>();
+            }
+            return View(form);
         }
 
         [Authorize(Roles = "Admin")]
@@ -29,10 +33,17 @@ namespace SoftwareEngineeringP1.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Flights(List<Flight> flights)
         {
-            ViewBag.Message = "Your contact page.";
-            return View();
+            FlightDataAccess fda = new FlightDataAccess();
+            var model = fda.GetAllFlights();
+            return View(flights);
+        }
+        [HttpPost]
+        public ActionResult SearchFlights(SearchPageForm form)
+        {
+            // todo: Search Flights from the database.
+            return RedirectToAction("Index", "Home", form);
         }
     }
 }
