@@ -16,6 +16,10 @@ Values ('[paste the Id column value from your user here]', '1')
 
 -- Logged in user will now have hte administrator role associated with their login. 
 
+Select f.Name,
+		a.City, a.Country, a2.City, a2.Country from Flights f
+Join Airports a on f.DestinationAirportId = a.Id
+Join Airports a2 on f.SourceAirportId = a2.Id
 
 
 Select a.Id, a.Name, a.Country from Airports a
@@ -23,5 +27,7 @@ where a.Country Like 'United States' and (a.City like '%Paul' or
 	a.City like '%Minn')
 
  
+ Select * from Flights
+
 
 

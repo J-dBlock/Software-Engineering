@@ -13,7 +13,7 @@ namespace SoftwareEngineeringP1.DataAccess
     /// </summary>
     public class FlightDataAccess
     {
-        // DO NOT CALL - Used in a unit test.
+        // Used in a unit test.
         public void LoadAirports(List<Airport> airports)
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
@@ -53,6 +53,14 @@ namespace SoftwareEngineeringP1.DataAccess
             db.SaveChanges();
         }
 
+        public List<Flight> SearchFlights(string destination, string arrival, string country)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            return db.Flights.Where(f =>  (destination != null && f.SourceAirport.City.Contains(destination)) ||
+                                            (arrival != null  && f.DestinationAirport.City.Contains(arrival)) ||
+                                            (country != null && (f.DestinationAirport.Country.Contains(country) || 
+                                                                f.SourceAirport.Country.Contains(country)))).ToList();
+        }
 
         /// <summary>
         /// based on the user that is logged in, get the flights where that user is a passanger of. 
@@ -76,6 +84,17 @@ namespace SoftwareEngineeringP1.DataAccess
         }
 
         /// <summary>
+        /// Returning a signle Flight from the database by the flight idetifier.
+        /// </summary>
+        /// <param name="flightId">Database Id that represents the flight.</param>
+        /// <returns>Flight object</returns>
+        public Flight GetFlight(int flightId)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            return db.Flights.SingleOrDefault(f => f.Id == flightId);
+        }
+
+        /// <summary>
         /// Calling this will make the user a passenger of a flight. 
         /// </summary>
         /// <param name="UserId">Id of the User.</param>
@@ -87,7 +106,7 @@ namespace SoftwareEngineeringP1.DataAccess
             {
                 PenguinFlightsDataContext db = new PenguinFlightsDataContext();
                 var dbFlight = db.Flights.SingleOrDefault(f => f.Id == flight.Id);    // basically checks the flight is in the database. 
-                //todo: Should validate user exists?
+                //todo: Should validate user exists? 
                 var passenger = new Passenger()
                 {
                     UserId = userId,

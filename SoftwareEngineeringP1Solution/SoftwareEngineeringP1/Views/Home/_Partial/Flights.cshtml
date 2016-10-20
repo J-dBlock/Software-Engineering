@@ -1,25 +1,46 @@
 ﻿@model List<SoftwareEngineeringP1.Models.Flight>
 
 <div class="table">
-    <table>
-        <tr>
+    <table class="table table-striped">
+        <tr class="">
             <td><b>Name</b></td>
             <td><b>Departure</b></td>
             <td><b>Destination</b></td>
             <td><b>Departure Time</b></td>
             <td><b>Arrival Time</b></td>
             <td><b>Price</b></td>
+            <td></td>
         </tr>
         @foreach (var flight in Model)
         {
-            <tr>
+            <tr class="" data-id="@flight.Id">
                 <td>@flight.Name</td>
                 <td>@flight.SourceAirport.City</td>
                 <td>@flight.DestinationAirport.City</td>
                 <td>@flight.DepartureTime</td>
                 <td>@flight.ArrivalTime</td>
                 <td>$@flight.Price</td>
+                <td><button type="submit" class="btn btn-default" action="/Home/Flight?id=@flight.Id">View</button></td>
             </tr>
         }
     </table>
 </div>
+
+<script type="text/javascript">
+    
+    // This should be checked for correctness. 
+    $(document)
+        .ready(function() {
+
+            // Click function for redirecting to the flight when a row is clicked on.
+            $('.flightClickAction')
+                .on('click',
+                    function(event) {
+                        event.preventDefault();
+                        var id = $(this).attr('data-id').val();
+                        $.ajax({
+                            url: "/Home/Flight?flightId=" + id
+                        });
+                    });
+        });
+</script>
