@@ -263,6 +263,7 @@
     <Content Include="Views\Home\_Partial\Flights.cshtml" />
     <Content Include="Views\Home\Flight.cshtml" />
     <Content Include="Views\Home\AllFights.cshtml" />
+    <Content Include="Views\Home\AdminControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
