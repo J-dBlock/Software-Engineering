@@ -13,34 +13,35 @@
         </tr>
         @foreach (var flight in Model)
         {
-            <tr class="" data-id="@flight.Id">
+            <tr class="" >
                 <td>@flight.Name</td>
                 <td>@flight.SourceAirport.City</td>
                 <td>@flight.DestinationAirport.City</td>
                 <td>@flight.DepartureTime</td>
                 <td>@flight.ArrivalTime</td>
                 <td>$@flight.Price</td>
-                <td><button type="submit" class="btn btn-default" action="/Home/Flight?id=@flight.Id">View</button></td>
+                <td><button data-id="@flight.Id" class="btn btn-default flightClickAction">View</button></td>
             </tr>
         }
     </table>
 </div>
 
 <script type="text/javascript">
-    
-    // This should be checked for correctness. 
-    $(document)
-        .ready(function() {
-
-            // Click function for redirecting to the flight when a row is clicked on.
-            $('.flightClickAction')
-                .on('click',
-                    function(event) {
-                        event.preventDefault();
-                        var id = $(this).attr('data-id').val();
-                        $.ajax({
-                            url: "/Home/Flight?flightId=" + id
-                        });
-                    });
+    $(document).ready(function() {
+        // Click function for redirecting to the flight when a row is clicked on.
+        $('.flightClickAction').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/GetFlightViewer",
+                data: "flightId=" + id,
+                method: "POST",
+                success: function (result) {
+                    $("#flightViewContainer").html(result);
+                    $("#FlightViewer").modal("show");
+                }
+            });
         });
+    });
+
 </script>

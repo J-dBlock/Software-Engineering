@@ -12,13 +12,13 @@ namespace SoftwareEngineeringP1.Controllers
 {
     public class HomeController : Controller
     {
-       public ActionResult Index(SearchPageForm form)
+       public ActionResult Index()
         {
-            if (form.flightResults == null)
-            {
-                form.flightResults=new List<Flight>();
-            }
-            return View(form);
+            //if (form.flightResults == null)
+            //{
+            //    form.flightResults=new List<Flight>();
+            //}
+            return View();
         }
 
         [Authorize(Roles = "Admin")]
@@ -47,6 +47,10 @@ namespace SoftwareEngineeringP1.Controllers
             return View(flights);
         }
 
+
+
+        #region |  Reserved for AJAX Method for inserting data.  |
+
         [HttpPost]
         public ActionResult SearchFlights(SearchPageForm form)
         {
@@ -54,8 +58,9 @@ namespace SoftwareEngineeringP1.Controllers
 
             var flights = fda.SearchFlights(form.StartCity, form.DestinationCity, form.Country);
 
-            return  PartialView("_Partial/Flights", flights);
+            return PartialView("_Partial/Flights", flights);
         }
+
 
         [HttpGet]
         public ActionResult Flight(int id)
@@ -64,5 +69,19 @@ namespace SoftwareEngineeringP1.Controllers
             var flight = fda.GetFlight(id);
             return View(flight);
         }
+
+        [HttpPost]
+        public ActionResult GetFlightViewer(int flightId)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            var flight = fda.GetFlight(flightId);
+            if (flight != null)
+            {
+                 return PartialView("_Partial/FlightViewer", flight);
+            }
+            return null;
+        }
+
+        #endregion
     }
 }

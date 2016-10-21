@@ -1,0 +1,35 @@
+﻿@model SoftwareEngineeringP1.Models.Flight
+
+<div id="FlightViewer" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">@Model.Name</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3"><span class="h4">To: </span></div> 
+                    <div class="col-md-3"><span>@Model.SourceAirport.Name</span></div>
+
+                    <div class="col-md-3"><span class="h4">From: </span></div> 
+                    <div class="col-md-3"><span>@Model.DestinationAirport.Name</span></div>  
+                </div>
+                <div class="row">
+                    <div class="col-lg-3"><span class="h4">Date: </span></div>
+                    <div class="col-md-3">@Model.DepartureTime.ToString("d")</div>
+                </div>
+                <div class="row">
+                    <div><span class="h4">Departure:</span>@Model.DepartureTime.ToString("hh:mm tt")</div>
+                    <div><span class="h4">Arrival:</span> @Model.ArrivalTime</div>
+                    <div><span class="h4">Price:</span> $@Model.Price</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+                <button type="button" class="btn btn-success">Book Flight</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
