@@ -29,8 +29,12 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <div class="form-group">
-                        Id Number:
-                        <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Id Number"/>
+                        Starting Id Number:
+                        <input type="text" class="form-control" id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number"/>
+                    </div>
+                    <div>
+                        Ending Id Number:
+                        <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number"/>
                     </div>
                     <div class="form-group">
                         Flight Time:
@@ -44,7 +48,6 @@
                         <button type="button" id="addFlight" class="btn btn-primary">Add Flight</button>
                     </div>
                 }
-                <div></div>
             </div>
         </div>
     </div>
