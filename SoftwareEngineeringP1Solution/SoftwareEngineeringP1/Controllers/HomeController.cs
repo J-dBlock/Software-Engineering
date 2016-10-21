@@ -21,6 +21,10 @@ namespace SoftwareEngineeringP1.Controllers
             return View(form);
         }
 
+        public ActionResult FlightManager()
+        {
+            return View(); 
+        }
         [Authorize(Roles = "Admin")]
         public ActionResult About()
         {
