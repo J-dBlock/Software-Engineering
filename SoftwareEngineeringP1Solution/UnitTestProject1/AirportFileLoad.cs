@@ -247,5 +247,216 @@ namespace UnitTestProject1
             };
             fda.AddOrUpdateFlight(flight);
         }
+
+        public void BuildTestFlights9()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(7472);
+            var air2 = fda.GetAirportById(1103);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 306,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(3),
+                Name = "7472-1103"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights10()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(4630);
+            var air2 = fda.GetAirportById(3392);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 200,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(1),
+                Name = "4630-3392"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights11()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(1716);
+            var air2 = fda.GetAirportById(5534);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 527,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(4),
+                Name = "1716-5534"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights12()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(3694);
+            var air2 = fda.GetAirportById(7540);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 1035,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(8),
+                Name = "3694-7540"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights13()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(3544);
+            var air2 = fda.GetAirportById(6575);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 944,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(7),
+                Name = "3544-6575"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights14()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(4026);
+            var air2 = fda.GetAirportById(6869);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 270,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(4),
+                Name = "4026-6869"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights15()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(6981);
+            var air2 = fda.GetAirportById(7592);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 263,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(4),
+                Name = "6981-7592"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+        
+        public void BuildTestFlights16()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(7458);
+            var air2 = fda.GetAirportById(3563);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 1346,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(8),
+                Name = "7458-3563"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights17()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(3182);
+            var air2 = fda.GetAirportById(3674);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 1958,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(23),
+                Name = "3182-3674"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
+        public void BuildTestFlights18()
+        {
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(3566);
+            var air2 = fda.GetAirportById(7436);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = 387,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(5),
+                Name = "3566-7436"
+            };
+            fda.AddOrUpdateFlight(flight);
+        }
+
     }
 }
