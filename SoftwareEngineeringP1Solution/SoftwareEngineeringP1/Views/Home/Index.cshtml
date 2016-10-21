@@ -24,22 +24,27 @@
                 </div>
                 <div></div>
             </div>
+            @* This is a section of the page that only the Admin can see to make inputs to add a new flight. *@
             <div class="form-inline">
                 @if (User.IsInRole("Admin"))
                 {
                     <div class="form-group">
+                        Id Number:
                         <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Id Number"/>
                     </div>
                     <div class="form-group">
+                        Flight Time:
                         <input type="text" class="form-control" id="newFlightTime" name="newFlightTime" placeholder="Flight Time"/>
                     </div>
                     <div class="form-group">
+                        Price:
                         <input type="text" class="form-control" id="newFlightPrice" name="newFlightPrice" placeholder="New Flight Price" />
                     </div>
                     <div class="form-group">
                         <button type="button" id="addFlight" class="btn btn-primary">Add Flight</button>
                     </div>
                 }
+                <div></div>
             </div>
         </div>
     </div>
