@@ -1,0 +1,57 @@
+﻿@model SoftwareEngineeringP1.Models.Flight
+
+<div id="FlightViewer" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3"><span class="h4">To: </span></div> 
+                    <div class="col-md-3"><span>@Model.SourceAirport.Name</span></div>
+
+                    <div class="col-md-3"><span class="h4">From: </span></div> 
+                    <div class="col-md-3"><span>@Model.DestinationAirport.Name</span></div>  
+                </div>
+                <div class="row">
+                    <div class="col-lg-3"><span class="h4">Date: </span></div>
+                    <div class="col-md-3">@Model.DepartureTime.ToString("d")</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><span class="h4">Departure:</span></div>
+                    <div class="col-md-3">@Model.DepartureTime.ToString("hh:mm tt")</div>
+                    
+                    <div class="col-md-3"><span class="h4">Arrival:</span></div>
+                    <div class="col-md-3">@Model.ArrivalTime.ToString("hh:mm tt")</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-10"><span class="h4">$@Model.Price</span></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+                @{
+                   if( User.IsInRole("Admin"))
+                    {
+                        <button type="button" class="btn btn-default editFlightBtn"><span class="glyphicon-edit"></span>Edit</button>
+                    }
+                 }
+                <button type="button" class="btn btn-success">Book Flight</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // ajax method that is used to get the edit form correctly. 
+        $(".editFlightBtn").on('click', function() {
+          // todo: Create the ajax to update the modal.   
+        });  
+    });
+</script>
+

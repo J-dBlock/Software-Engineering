@@ -44,15 +44,23 @@ $(document).click(function () {
         </tr>
         @foreach (var flight in Model)
         {
+<<<<<<< HEAD
             <tr class="" data-id="@flight.Id" >
+=======
+            <tr class="" >
+>>>>>>> ea9f127cbde959f5f0c5ab4aa7049082c641e3a1
                 <td>@flight.Name</td>
                 <td>@flight.SourceAirport.City</td>
                 <td>@flight.DestinationAirport.City</td>
                 <td>@flight.DepartureTime</td>
                 <td>@flight.ArrivalTime</td>
                 <td>$@flight.Price</td>
+<<<<<<< HEAD
                 <td><button type="submit" class="btn btn-default" action="/Home/Flight?id=@flight.Id">View</button></td>
                 <td> <button title="" type="button" class="btn btn-danger remove show_tip" data-original-title="Remove from list"><i class="fa fa-trash-o"></i></button></td>
+=======
+                <td><button data-id="@flight.Id" class="btn btn-default flightClickAction">View</button></td>
+>>>>>>> ea9f127cbde959f5f0c5ab4aa7049082c641e3a1
             </tr>
         }
     </table>
@@ -60,19 +68,24 @@ $(document).click(function () {
 
 <script type="text/javascript">
     
-    // This should be checked for correctness. 
-    $(document)
-        .ready(function() {
+    $(document).ready(function () {
 
-            // Click function for redirecting to the flight when a row is clicked on.
-            $('.flightClickAction')
-                .on('click',
-                    function(event) {
-                        event.preventDefault();
-                        var id = $(this).attr('data-id').val();
-                        $.ajax({
-                            url: "/Home/Flight?flightId=" + id
-                        });
-                    });
+        // Click function for redirecting to the flight when a row is clicked on.
+        $('.flightClickAction').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/GetFlightViewer",
+                data: "flightId=" + id,
+                method: "POST",
+                success: function (result) {
+                    $("#flightViewContainer").html(result);
+                    $("#FlightViewer").modal("show");
+                }
+            });
         });
+
+
+    });
+
 </script>
