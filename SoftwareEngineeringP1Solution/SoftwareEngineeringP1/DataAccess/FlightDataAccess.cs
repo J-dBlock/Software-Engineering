@@ -94,6 +94,7 @@ namespace SoftwareEngineeringP1.DataAccess
             return db.Flights.SingleOrDefault(f => f.Id == flightId);
         }
 
+
         /// <summary>
         /// Calling this will make the user a passenger of a flight. 
         /// </summary>
