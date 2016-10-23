@@ -58,6 +58,7 @@ namespace UnitTestProject1
         }
 
 
+
         [TestMethod]
         public void BuildTestFlights()
         {
@@ -78,6 +79,29 @@ namespace UnitTestProject1
                 Name = "Random Flight"
             };
             fda.AddOrUpdateFlight(flight);
+        }
+        
+        [TestMethod]
+        public void AddAllNewFlights()
+        {
+            BuildTestFlights1();
+            BuildTestFlights2();
+            BuildTestFlights3();
+            BuildTestFlights4();
+            BuildTestFlights5();
+            BuildTestFlights6();
+            BuildTestFlights7();
+            BuildTestFlights8();
+            BuildTestFlights9();
+            BuildTestFlights10();
+            BuildTestFlights11();
+            BuildTestFlights12();
+            BuildTestFlights13();
+            BuildTestFlights14();
+            BuildTestFlights15();
+            BuildTestFlights16();
+            BuildTestFlights17();
+            BuildTestFlights18();
         }
 
         public void BuildTestFlights1()
