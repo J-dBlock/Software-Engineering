@@ -32,7 +32,7 @@
                         Starting Id Number:
                         <input type="text" class="form-control" id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number"/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         Ending Id Number:
                         <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number"/>
                     </div>
@@ -83,6 +83,26 @@
                     success: function(result) {
                         $('#resultsTable').html(result);
                     }
+                });
+
+                $('#addFlight').on('click', function (event) {
+                    var fda = new FlightDataAccess();
+
+                    var air1 = fda.GetAirportById(document.getElementById("startingIdNumber").value);
+                    var air2 = fda.GetAirportById(document.getElementById("endingIdNumber").value);
+                    var flight = new Flight()
+                    {
+                        SourceAirport = air1,
+                        DestinationAirport = air2,
+                        SourceAirportId = air1.Id,
+                        DestinationAirportId = air2.Id,
+                        Price = document.getElementById("newFlightPrice").value,
+                        Status = true,
+                        DepartureTime = DateTime.Now,
+                        ArrivalTime = DateTime.Now.AddHours(document.getElementById("newFlightTime").value),
+                        Name = "Random Flight"
+                    };
+                    fda.AddOrUpdateFlight(flight);
                 });
             });
         });
