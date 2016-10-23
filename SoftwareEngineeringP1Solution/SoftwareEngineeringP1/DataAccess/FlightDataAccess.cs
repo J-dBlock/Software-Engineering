@@ -56,7 +56,10 @@ namespace SoftwareEngineeringP1.DataAccess
         public List<Flight> SearchFlights(string destination, string arrival, string country)
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
-            return db.Flights.Where(f =>  (destination != null && f.SourceAirport.City.Contains(destination)) ||
+                                            // Status should be true that the flight is still happening
+            return db.Flights.Where(f => f.Status &&
+                                            // Linq that applies the search criteria.
+                                            (destination != null && f.SourceAirport.City.Contains(destination)) ||
                                             (arrival != null  && f.DestinationAirport.City.Contains(arrival)) ||
                                             (country != null && (f.DestinationAirport.Country.Contains(country) || 
                                                                 f.SourceAirport.Country.Contains(country)))).ToList();

@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">@Model.Name</h4>
+                
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -20,16 +20,38 @@
                     <div class="col-md-3">@Model.DepartureTime.ToString("d")</div>
                 </div>
                 <div class="row">
-                    <div><span class="h4">Departure:</span>@Model.DepartureTime.ToString("hh:mm tt")</div>
-                    <div><span class="h4">Arrival:</span> @Model.ArrivalTime</div>
-                    <div><span class="h4">Price:</span> $@Model.Price</div>
+                    <div class="col-md-3"><span class="h4">Departure:</span></div>
+                    <div class="col-md-3">@Model.DepartureTime.ToString("hh:mm tt")</div>
+                    
+                    <div class="col-md-3"><span class="h4">Arrival:</span></div>
+                    <div class="col-md-3">@Model.ArrivalTime.ToString("hh:mm tt")</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-10"><span class="h4">$@Model.Price</span></div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+                @{
+                   if( User.IsInRole("Admin"))
+                    {
+                        <button type="button" class="btn btn-default editFlightBtn"><span class="glyphicon-edit"></span>Edit</button>
+                    }
+                 }
                 <button type="button" class="btn btn-success">Book Flight</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        // ajax method that is used to get the edit form correctly. 
+        $(".editFlightBtn").on('click', function() {
+          // todo: Create the ajax to update the modal.   
+        });  
+    });
+</script>
 
