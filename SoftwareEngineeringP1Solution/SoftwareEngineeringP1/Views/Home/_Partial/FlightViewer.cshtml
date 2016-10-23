@@ -9,11 +9,11 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-3"><span class="h4">To: </span></div> 
-                    <div class="col-md-3"><span>@Model.SourceAirport.Name</span></div>
+                    <div class="col-md-1"><span class="h4">To: </span></div> 
+                    <div class="col-md-5"><span class="h4">@Model.SourceAirport.Name</span></div>
 
-                    <div class="col-md-3"><span class="h4">From: </span></div> 
-                    <div class="col-md-3"><span>@Model.DestinationAirport.Name</span></div>  
+                    <div class="col-md-1"><span class="h4">From: </span></div> 
+                    <div class="col-md-5"><span class="h4">@Model.DestinationAirport.Name</span></div>  
                 </div>
                 <div class="row">
                     <div class="col-lg-3"><span class="h4">Date: </span></div>
@@ -27,19 +27,24 @@
                     <div class="col-md-3">@Model.ArrivalTime.ToString("hh:mm tt")</div>
                     
                 </div>
+                <br/>
                 <div class="row">
                     <div class="col-md-2 col-md-offset-10"><span class="h4">$@Model.Price</span></div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
-                @{
-                   if( User.IsInRole("Admin"))
+            
+            @* Fake footer *@
+            <div class="row" style="margin: 5px;">
+                <div class="col-md-5 col-md-offset-7 right">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+                    
+                    @if (User.IsInRole("Admin"))
                     {
                         <button type="button" class="btn btn-default editFlightBtn"><span class="glyphicon-edit"></span>Edit</button>
                     }
-                 }
-                <button type="button" class="btn btn-success">Book Flight</button>
+                    
+                    <button type="button" class="btn btn-success">Book Flight</button>
+                </div>
             </div>
         </div>
     </div>
