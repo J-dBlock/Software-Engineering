@@ -195,6 +195,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\FlightUserPageForm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Passenger.cs" />
@@ -264,6 +265,7 @@
     <Content Include="Views\Home\Flight.cshtml" />
     <Content Include="Views\Home\AllFights.cshtml" />
     <Content Include="Views\Home\_Partial\FlightViewer.cshtml" />
+    <Content Include="Views\Home\_Partial\EditFlightViewer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

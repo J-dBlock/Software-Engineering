@@ -12,7 +12,7 @@ SELECT * FROM PenguinFlightsData.dbo.AspNetUsers
 
 
 Insert into AspNetUserRoles (UserId, RoleId)
-Values ('[paste the Id column value from your user here]', '1')
+Values ('a567b817-8d9d-48df-8ac1-657d0049f797', '1')
 
 -- Logged in user will now have hte administrator role associated with their login. 
 

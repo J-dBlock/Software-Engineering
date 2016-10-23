@@ -75,11 +75,55 @@ namespace SoftwareEngineeringP1.Controllers
         {
             FlightDataAccess fda = new FlightDataAccess();
             var flight = fda.GetFlight(flightId);
+
+           
             if (flight != null)
             {
-                 return PartialView("_Partial/FlightViewer", flight);
+                var pageForm = new FlightUserPageForm()
+                {
+                    Flight = flight,
+                    IsAdmin = User.IsInRole("Admin")
+                };
+
+                return PartialView("_Partial/FlightViewer", pageForm);
             }
             return null;
+        }
+
+        public ActionResult GetEditFlightViewer(int flightId)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            var flight = fda.GetFlight(flightId);
+
+            if (flight != null)
+            {
+                return PartialView("_Partial/EditFlightViewer", flight);
+            }
+            return null;
+
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult GetEditFlgihtViewer(int flightId)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+
+            var flight = fda.GetFlight(flightId);
+            if (flight != null)
+            {
+                return PartialView("_Partial/EditFlightViewer", flight);
+            }
+            return null;
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public void EditFlight(Flight flight)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+
+            fda.AddOrUpdateFlight(flight);
         }
 
         #endregion
