@@ -90,22 +90,8 @@ namespace SoftwareEngineeringP1.Controllers
             return null;
         }
 
-        public ActionResult GetEditFlightViewer(int flightId)
-        {
-            FlightDataAccess fda = new FlightDataAccess();
-            var flight = fda.GetFlight(flightId);
-
-            if (flight != null)
-            {
-                return PartialView("_Partial/EditFlightViewer", flight);
-            }
-            return null;
-
-        }
-
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public ActionResult GetEditFlgihtViewer(int flightId)
+        public ActionResult GetEditFlightViewer(int flightId)
         {
             FlightDataAccess fda = new FlightDataAccess();
 

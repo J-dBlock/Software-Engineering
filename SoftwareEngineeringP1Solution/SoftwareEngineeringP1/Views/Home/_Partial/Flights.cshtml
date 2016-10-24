@@ -41,11 +41,45 @@
                 success: function (result) {
                     $("#flightViewContainer").html(result);
                     $("#FlightViewer").modal("show");
+                    rebindhandles();
+                }
+            });
+        });
+    });
+
+    // AJAX handle for binding the on click function for editing flights. 
+    // seperate function because dynamically loading content needs to be bound.
+    var rebindhandles = function () {
+
+        $(".editFlightBtn").off();
+        $(".editFlightBtn").on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/GetEditFlightViewer",
+                data: "flightId=" + id,
+                method: "POST",
+                success: function (result) {
+                    $("#modelBody").html(result).fadeIn("slow");
+                    rebindhandles();
                 }
             });
         });
 
-
-    });
+        $("#saveFlight").off();
+        $("#saveFlight").on('click', function () {
+            //todo: magic
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/GetEditFlightViewer",
+                data: "flightId=" + id,
+                method: "POST",
+                success: function (result) {
+                    $("#modelBody").html(result).fadeIn("slow");
+                    rebindhandles();
+                }
+            });
+        });
+    }
 
 </script>

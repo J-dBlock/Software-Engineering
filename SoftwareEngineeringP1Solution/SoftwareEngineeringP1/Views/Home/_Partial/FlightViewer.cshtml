@@ -2,47 +2,42 @@
 
 <div id="FlightViewer" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" id="modelBody">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                
+                <div class="h4"> @Model.Flight.Name - @Model.Flight.DepartureTime.ToString("d")</div>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-1"><span class="h4">To: </span></div> 
-                    <div class="col-md-5"><span class="h4">@Model.Flight.SourceAirport.Name</span></div>
+                    <div class="col-md-2"><span class="">To: </span></div> 
+                    <div class="col-md-4 text-right h4">@Model.Flight.SourceAirport.Name</div>
 
-                    <div class="col-md-1"><span class="h4">From: </span></div> 
-                    <div class="col-md-5"><span class="h4">@Model.Flight.DestinationAirport.Name</span></div>  
+                    <div class="col-md-2"><span class="">From: </span></div> 
+                    <div class="col-md-4 text-right h4">@Model.Flight.DestinationAirport.Name</div>  
                 </div>
                 <div class="row">
-                    <div class="col-lg-3"><span class="h4">Date: </span></div>
-                    <div class="col-md-3">@Model.Flight.DepartureTime.ToString("d")</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><span class="h4">Departure:</span></div>
-                    <div class="col-md-3">@Model.Flight.DepartureTime.ToString("hh:mm tt")</div>
+                    <div class="col-md-3"><span class="">Departure:</span></div>
+                    <div class="col-md-3 h5 text-right">@Model.Flight.DepartureTime.ToString("hh:mm tt")</div>
                     
-                    <div class="col-md-3"><span class="h4">Arrival:</span></div>
-                    <div class="col-md-3">@Model.Flight.ArrivalTime.ToString("hh:mm tt")</div>
-                    
+                    <div class="col-md-3"><span class="">Arrival:</span></div>
+                    <div class="col-md-3 h5 text-right">@Model.Flight.ArrivalTime.ToString("hh:mm tt")</div>
                 </div>
                 <br/>
                 <div class="row">
-                    <div class="col-md-2 col-md-offset-10"><span class="h4">$@Model.Flight.Price</span></div>
+                    <div class="col-md-2 col-md-offset-10 text-right h3">$@Model.Flight.Price</div>
                 </div>
             </div>
             
             @* Fake footer *@
             <div class="row" style="margin: 5px;">
-                <div class="col-md-7 col-md-offset-5 right">
+                <div class="col-md-7 col-md-offset-5 text-right">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
                     
                     @if (User.IsInRole("Admin"))
                     {
-                        <button type="button" class="btn btn-default editFlightBtn"><span class="glyphicon glyphicon-edit"></span>Edit</button>
+                        <button type="button" data-id="@Model.Flight.Id" class="btn btn-default editFlightBtn"><span class="glyphicon glyphicon-edit"></span>Edit</button>
                     }
-                    
+
                     <button type="button" class="btn btn-success">Book Flight</button>
                 </div>
             </div>
@@ -52,22 +47,5 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        // ajax method that is used to get the edit form correctly. 
-        $(".editFlightBtn").on('click', function(event) {
-            // todo: Create the ajax to update the modal.   
-            event.preventDefault();
-            var id = $(this).attr('data-id');
-            $.ajax({
-                url: "/Home/GetFlightViewer",
-                data: "flightId=" + id,
-                method: "POST",
-                success: function (result) {
-                    $("#flightViewContainer").html(result);
-                    $("#FlightViewer").modal("show");
-                }
-            });
-        });  
-    });
 </script>
 
