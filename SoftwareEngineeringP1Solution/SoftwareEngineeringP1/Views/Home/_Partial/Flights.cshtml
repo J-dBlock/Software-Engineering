@@ -68,15 +68,16 @@
 
         $("#saveFlight").off();
         $("#saveFlight").on('click', function () {
-            //todo: magic
             var id = $(this).attr('data-id');
             $.ajax({
-                url: "/Home/GetEditFlightViewer",
-                data: "flightId=" + id,
+                url: "/Home/EditFlight",
+                data: $("#EditFlightForm").serialize(),
                 method: "POST",
                 success: function (result) {
                     $("#modelBody").html(result).fadeIn("slow");
                     rebindhandles();
+                    $("#FlightViewer").modal("toggle");
+                    $("#searchFlights").click();
                 }
             });
         });

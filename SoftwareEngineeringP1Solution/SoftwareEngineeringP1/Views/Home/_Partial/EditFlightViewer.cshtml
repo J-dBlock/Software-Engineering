@@ -1,38 +1,51 @@
 ﻿@model SoftwareEngineeringP1.Models.Flight
    
-
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <div class="h4">Edit: @Model.Name - <input type="date" placeholder="@Model.DepartureTime.ToString("yyyy-MM-dd")" value="@Model.DepartureTime.ToString("yyyy-MM-dd")"/></div>
-</div>
-<div class="modal-body">
-    <div class="row">
-        <div class="col-md-2"><span class="">To: </span></div>
-        <div class="col-md-4 text-right h4">@Model.SourceAirport.Name</div>
-
-        <div class="col-md-2"><span class="">From: </span></div>
-        <div class="col-md-4 text-right h4">@Model.DestinationAirport.Name</div>
+<form id="EditFlightForm">
+    <input type="hidden" Name="Id" value="@Model.Id"/>
+    <input type="hidden" Name="SourceAirportId" value="@Model.SourceAirportId"/>
+    <input type="hidden" Name="DestinationAirportId" Value="@Model.DestinationAirportId">
+    <input type="hidden" Name="Status" value="true"/>
+    <input type="hidden" Name="Name" Value="@Model.Name"/>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="h4">Edit: @Model.Name - <input type="date" placeholder="@Model.DepartureTime.ToString("yyyy-MM-dd")" value="@Model.DepartureTime.ToString("yyyy-MM-dd")"/>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-3"><span class="">Departure:</span></div>
-        <div class="col-md-3 h5 text-right"><input type="time" class="form-control" placeholder="@Model.DepartureTime.ToString("hh:mm")" value="@Model.DepartureTime.ToString("hh:mm")"/></div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-2"><span class="">To: </span></div>
+            <div class="col-md-4 text-right h4">@Model.SourceAirport.Name</div>
 
-        <div class="col-md-3"><span class="">Arrival:</span></div>
-        <div class="col-md-3 h5 text-right"><input type="time" class="form-control" placeholder="@Model.ArrivalTime.ToString("hh:mm")" value="@Model.ArrivalTime.ToString("hh:mm")" /></div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col-md-2">Price: </div>
-        <div class="col-md-4"><input name="Price" class="form-control" type="text" value="@Model.Price" /></div>
-    </div>
-</div>
+            <div class="col-md-2"><span class="">From: </span></div>
+            <div class="col-md-4 text-right h4">@Model.DestinationAirport.Name</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><span class="">Departure:</span></div>
+            <div class="col-md-3 h5 text-right">
+                <input type="time" class="form-control" name="DepartureTime" placeholder="@Model.DepartureTime.ToString("hh:mm")" value="@Model.DepartureTime.ToString("hh:mm")"/>
+            </div>
 
-@* Fake footer *@
-<div class="row" style="margin: 5px;">
-    <div class="col-md-7 col-md-offset-5 text-right">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
-
-        <button type="button" id="saveFlight" class="btn btn-success">Save Changes</button>
+            <div class="col-md-3"><span class="">Arrival:</span></div>
+            <div class="col-md-3 h5 text-right">
+                <input type="time" class="form-control" name="ArrivalTime" placeholder="@Model.ArrivalTime.ToString("hh:mm")" value="@Model.ArrivalTime.ToString("hh:mm")"/>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-2">Price: </div>
+            <div class="col-md-4">
+                <input name="Price" class="form-control" Name="Price" type="text" value="@Model.Price"/>
+            </div>
+        </div>
     </div>
-</div>
+
+    @* Fake footer *@
+    <div class="row" style="margin: 5px;">
+        <div class="col-md-7 col-md-offset-5 text-right">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+
+            <button type="button" id="saveFlight" class="btn btn-success">Save Changes</button>
+        </div>
+    </div>
+</form>
