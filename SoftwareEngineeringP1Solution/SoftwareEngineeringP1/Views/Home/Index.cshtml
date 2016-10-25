@@ -2,7 +2,39 @@
     ViewBag.Title = "Home Page";
 }
 @model SoftwareEngineeringP1.Models.SearchPageForm
-     
+ 
+<form method="post" id="addFlightForm" action="/Home/AddFlights">
+    <div class="row">
+        <div class="col-lg-12">
+            @* This is a section of the page that only the Admin can see to make inputs to add a new flight. *@
+            <div class="form-inline">
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="form-group">
+                        Starting Id Number:
+                        <input type="text" class="form-control" id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number" />
+                    </div>
+                    <div class="form-group">
+                        Ending Id Number:
+                        <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number" />
+                    </div>
+                    <div class="form-group">
+                        Flight Time:
+                        <input type="text" class="form-control" id="newFlightTime" name="time" placeholder="Flight Time" />
+                    </div>
+                    <div class="form-group">
+                        Price:
+                        <input type="text" class="form-control" id="newFlightPrice" name="price" placeholder="New Flight Price" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" onclick="addFlights" id="addFlight" class="btn btn-primary">Add Flight</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
 <form method="post" id="searchForm" action="/Home/SearchFlights">
     <div class="row">
         <div class="col-lg-12">
@@ -23,31 +55,6 @@
                     <button type="submit" id="searchFlights" class="btn btn-primary">Submit</button>
                 </div>
                 <div></div>
-            </div>
-            @* This is a section of the page that only the Admin can see to make inputs to add a new flight. *@
-            <div class="form-inline">
-                @if (User.IsInRole("Admin"))
-                {
-                    <div class="form-group">
-                        Starting Id Number:
-                        <input type="text" class="form-control" id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number"/>
-                    </div>
-                    <div class="form-group">
-                        Ending Id Number:
-                        <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number"/>
-                    </div>
-                    <div class="form-group">
-                        Flight Time:
-                        <input type="text" class="form-control" id="newFlightTime" name="newFlightTime" placeholder="Flight Time"/>
-                    </div>
-                    <div class="form-group">
-                        Price:
-                        <input type="text" class="form-control" id="newFlightPrice" name="newFlightPrice" placeholder="New Flight Price" />
-                    </div>
-                    <div class="form-group">
-                        <button type="button" id="addFlight" class="btn btn-primary">Add Flight</button>
-                    </div>
-                }
             </div>
         </div>
     </div>
@@ -83,26 +90,6 @@
                     success: function(result) {
                         $('#resultsTable').html(result);
                     }
-                });
-
-                $('#addFlight').on('click', function (event) {
-                    var fda = new FlightDataAccess();
-
-                    var air1 = fda.GetAirportById(document.getElementById("startingIdNumber").value);
-                    var air2 = fda.GetAirportById(document.getElementById("endingIdNumber").value);
-                    var flight = new Flight()
-                    {
-                        SourceAirport = air1,
-                        DestinationAirport = air2,
-                        SourceAirportId = air1.Id,
-                        DestinationAirportId = air2.Id,
-                        Price = document.getElementById("newFlightPrice").value,
-                        Status = true,
-                        DepartureTime = DateTime.Now,
-                        ArrivalTime = DateTime.Now.AddHours(document.getElementById("newFlightTime").value),
-                        Name = "Random Flight"
-                    };
-                    fda.AddOrUpdateFlight(flight);
                 });
             });
         });

@@ -53,6 +53,29 @@ namespace SoftwareEngineeringP1.DataAccess
             db.SaveChanges();
         }
 
+        public void addFlight(int startingIdNumber, int endingIdNumber, int time, int price)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(startingIdNumber);
+            var air2 = fda.GetAirportById(endingIdNumber);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = price,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(time),
+                Name = startingIdNumber + "-" + endingIdNumber
+            };
+            db.Flights.AddOrUpdate(flight);
+            db.SaveChanges();
+        }
+
         public List<Flight> SearchFlights(string destination, string arrival, string country)
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();

@@ -22,7 +22,7 @@ namespace UnitTestProject1
         {
             // Change this string the location of the data files for your systems.
             // There is a copy of the file in TestingAndScript -> DataFiles
-            string DataFilesDirectory = @"D:\Student Data\Downloads\";
+            string DataFilesDirectory = @"C:\Users\Student\Software-Engineering\SoftwareEngineeringP1Solution\UnitTestProject1\DataFiles\";
 
             string[] lines = System.IO.File.ReadAllLines(DataFilesDirectory + "airports.dat.txt");
             List<Airport> airports = new List<Airport>();
