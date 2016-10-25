@@ -86,6 +86,13 @@ namespace SoftwareEngineeringP1.Controllers
             return null;
         }
 
+        [HttpPost]
+        public void DeleteFlight(int flightID)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            fda.DeleteFlight(flightID);
+        }
+
         #endregion
     }
 }

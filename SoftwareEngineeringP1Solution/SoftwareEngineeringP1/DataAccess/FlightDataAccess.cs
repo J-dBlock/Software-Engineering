@@ -53,6 +53,13 @@ namespace SoftwareEngineeringP1.DataAccess
             db.SaveChanges();
         }
 
+        public void DeleteFlight(int id)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            db.Flights.Remove(db.Flights.SingleOrDefault(a => a.Id == id));
+            db.SaveChanges();            
+        }
+
         public List<Flight> SearchFlights(string destination, string arrival, string country)
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();

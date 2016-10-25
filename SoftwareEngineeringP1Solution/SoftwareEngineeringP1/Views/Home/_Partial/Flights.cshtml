@@ -52,7 +52,7 @@ $(document).click(function () {
                 <td>@flight.ArrivalTime</td>
                 <td>$@flight.Price</td>
                 <td><button data-id="@flight.Id" class="btn btn-default flightClickAction">View</button></td>
-                <td> <button title="" type="button" class="btn btn-danger remove show_tip" data-original-title="Remove from list"><i class="fa fa-trash-o"></i></button></td>
+                <td> <button data-id="@flight.Id" title="" type="button" class="btn btn-danger remove show_tip" data-original-title="Remove from list"><i class="fa fa-trash-o"></i></button></td>
             </tr>
         }
     </table>
@@ -77,6 +77,22 @@ $(document).click(function () {
             });
         });
 
+        $("table#bootstrap_git_demo").on("click", ".remove", function () {
+            $(this).closest('tr').remove();
+        });
+
+        $('.show_tip').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/DeleteFlight",
+                data: "flightID=" + id,
+                method: "POST",
+                success: function () {
+                    
+                }
+            });
+        });
 
     });
 
