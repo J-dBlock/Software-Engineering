@@ -2,9 +2,40 @@
     ViewBag.Title = "Home Page";
 }
 @model SoftwareEngineeringP1.Models.SearchPageForm
-    
-<div id="flightViewContainer"></div>
-<form method="post" id="searchForm">
+ 
+<form method="post" id="addFlightForm" action="/Home/AddFlights">
+    <div class="row">
+        <div class="col-lg-12">
+            @* This is a section of the page that only the Admin can see to make inputs to add a new flight. *@
+            <div class="form-inline">
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="form-group">
+                        Starting Id Number:
+                        <input type="text" class="form-control" id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number" />
+                    </div>
+                    <div class="form-group">
+                        Ending Id Number:
+                        <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number" />
+                    </div>
+                    <div class="form-group">
+                        Flight Time:
+                        <input type="text" class="form-control" id="newFlightTime" name="time" placeholder="Flight Time" />
+                    </div>
+                    <div class="form-group">
+                        Price:
+                        <input type="text" class="form-control" id="newFlightPrice" name="price" placeholder="New Flight Price" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" onclick="addFlights" id="addFlight" class="btn btn-primary">Add Flight</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+<form method="post" id="searchForm" action="/Home/SearchFlights">
     <div class="row">
         <div class="col-lg-12">
             <div class="form-inline">
@@ -23,6 +54,7 @@
                 <div class="checkbox">
                     <button type="submit" id="searchFlights" class="btn btn-primary">Search</button>
                 </div>
+                <div></div>
             </div>
         </div>
     </div>

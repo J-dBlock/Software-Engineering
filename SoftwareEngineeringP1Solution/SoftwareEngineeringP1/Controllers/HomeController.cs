@@ -65,6 +65,13 @@ namespace SoftwareEngineeringP1.Controllers
             return PartialView("_Partial/Flights", flights);
         }
 
+        [HttpPost]
+        public ActionResult AddFlights(AddFlightForm form)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            fda.addFlight(form.startingIdNumber, form.endingIdNumber, form.time, form.price);
+            return RedirectToAction("Index", "Home");
+        }
 
         [HttpGet]
         public ActionResult Flight(int id)
