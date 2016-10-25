@@ -21,6 +21,10 @@ namespace SoftwareEngineeringP1.Controllers
             return View();
         }
 
+        public ActionResult FlightManager()
+        {
+            return View(); 
+        }
         [Authorize(Roles = "Admin")]
         public ActionResult About()
         {
@@ -80,6 +84,13 @@ namespace SoftwareEngineeringP1.Controllers
                  return PartialView("_Partial/FlightViewer", flight);
             }
             return null;
+        }
+
+        [HttpPost]
+        public void DeleteFlight(int flightID)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            fda.DeleteFlight(flightID);
         }
 
         #endregion

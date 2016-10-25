@@ -12,5 +12,6 @@ namespace SoftwareEngineeringP1.Models
         public string StartCity { get; set; }
         public string DestinationCity { get; set; }
         public List<Flight> flightResults { get; set; }
+        public List<Flight> allFlightResults { get; set; }
     }
 }

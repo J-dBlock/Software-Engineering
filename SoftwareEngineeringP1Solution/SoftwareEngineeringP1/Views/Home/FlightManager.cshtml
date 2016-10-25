@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Flight Manager";
+}
+
+
+@model SoftwareEngineeringP1.Models.SearchPageForm
+
+<form method="post" id="searchForm" action="/Home/SearchFlights">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    Country:
+                    <input type="text" Name="Country" placeholder="Country" class="form-control" />
+                </div>
+                <div class="form-group">
+                    Start City:
+                    <input type="text" class="form-control" id="st-flight" Name="StartCity" placeholder="Start Location" />
+                </div>
+                <div class="form-group">
+                    Destination City:
+                    <input type="text" class="form-control" id="dt-flight" Name="DestinationCity" placeholder="Destination" />
+                </div>
+                <div class="checkbox">
+                    <button type="submit" id="searchFlights" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@* This is a section for building scripts for the page. These are loaded at the end so JQuery is already loaded. *@
+@section scripts {
+
+    <script type="text/javascript">
+
+        // This should be checked for correctness.
+        $(document).ready(function () {
+
+            // Click function for redirecting to the flight when a row is clicked on.
+            //$('.flightClickAction').on('click', function (event) {
+            //    event.preventDefault();
+            //    var id = $(this).attr('data-id').val();
+            //    $.ajax({
+            //        url: "/Home/Flight?flightId=" + id
+            //    });
+            //});
+
+            // Ajax method that calls the searching method, and repopulates the results of the table.
+            $('#searchFlights').on('click', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "/Home/SearchFlights",
+                    data: $("#searchForm").serialize(),
+                    method: "POST",
+                    success: function(result) {
+                        $('#resultsTable').html(result);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+}
