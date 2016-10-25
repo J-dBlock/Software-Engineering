@@ -49,13 +49,13 @@
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
                     </p>*@
             }
-        </section>
+            <div class="col-md-4">
+                <section id="socialLoginForm">
+                    <img src="~/Images/Penguin-White.JPG" width="313" height="422" />
+                </section>
+            </div></section>
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
+
 </div>
 
 @section Scripts {
