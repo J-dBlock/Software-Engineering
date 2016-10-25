@@ -16,7 +16,7 @@ namespace UnitTestProject1
             fda.GetAllAirports();
         }
 
-        //[Ignore]
+
         [TestMethod]
         public void TestMethod1()
         {
