@@ -59,10 +59,18 @@ namespace SoftwareEngineeringP1.DataAccess
                                             // Status should be true that the flight is still happening
             return db.Flights.Where(f => f.Status &&
                                             // Linq that applies the search criteria.
-                                            (destination != null && f.SourceAirport.City.Contains(destination)) ||
+                                            ((destination != null && f.SourceAirport.City.Contains(destination)) ||
                                             (arrival != null  && f.DestinationAirport.City.Contains(arrival)) ||
                                             (country != null && (f.DestinationAirport.Country.Contains(country) || 
-                                                                f.SourceAirport.Country.Contains(country)))).ToList();
+                                                                f.SourceAirport.Country.Contains(country))) )
+                                                                ).ToList();
+        }
+
+        public void DeleteFlights(int id)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            db.Flights.Remove(db.Flights.SingleOrDefault(a => a.Id == id));
+            db.SaveChanges();
         }
 
         /// <summary>
@@ -95,6 +103,43 @@ namespace SoftwareEngineeringP1.DataAccess
         {
             PenguinFlightsDataContext db = new PenguinFlightsDataContext();
             return db.Flights.SingleOrDefault(f => f.Id == flightId);
+        }
+
+
+        public void addFlight(int startingIdNumber, int endingIdNumber, int time, int price)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+            var fda = new FlightDataAccess();
+
+            var air1 = fda.GetAirportById(startingIdNumber);
+            var air2 = fda.GetAirportById(endingIdNumber);
+            var flight = new Flight()
+            {
+                SourceAirport = air1,
+                DestinationAirport = air2,
+                SourceAirportId = air1.Id,
+                DestinationAirportId = air2.Id,
+                Price = price,
+                Status = true,
+                DepartureTime = DateTime.Now,
+                ArrivalTime = DateTime.Now.AddHours(time),
+                Name = startingIdNumber + "-" + endingIdNumber
+            };
+            db.Flights.AddOrUpdate(flight);
+            db.SaveChanges();
+        }
+
+        public void DeleteFlight(int flightId)
+        {
+            PenguinFlightsDataContext db = new PenguinFlightsDataContext();
+
+            var flight = GetFlight(flightId);
+            if (flight != null)
+            {
+                flight.Status = false;
+                db.Flights.AddOrUpdate(flight);
+                db.SaveChanges();
+            }
         }
 
         /// <summary>

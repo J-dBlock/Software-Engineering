@@ -74,13 +74,13 @@ namespace UnitTestProject1
                 Price = 250,
                 Status = true,
                 DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(3),
                 Name = "Random Flight"
             };
             fda.AddOrUpdateFlight(flight);
         }
 
-        [Ignore]
+       // [Ignore]
         [TestMethod]
         public void LoadAllNewFlights()
         {
@@ -117,8 +117,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 956,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(13),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(13),
                 Name = "1189-3674"
             };
             fda.AddOrUpdateFlight(flight);
@@ -138,8 +138,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 1954,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(30),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(30),
                 Name = "3503-2856"
             };
             fda.AddOrUpdateFlight(flight);
@@ -159,8 +159,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 102,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(3),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(3),
                 Name = "3392-3563"
             };
             fda.AddOrUpdateFlight(flight);
@@ -180,8 +180,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 224,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(5),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(5),
                 Name = "6751-2530"
             };
             fda.AddOrUpdateFlight(flight);
@@ -201,8 +201,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 480,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(6),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(6),
                 Name = "4136-3461"
             };
             fda.AddOrUpdateFlight(flight);
@@ -222,8 +222,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 704,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(14),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(14),
                 Name = "3563-2739"
             };
             fda.AddOrUpdateFlight(flight);
@@ -243,8 +243,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 1028,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(17),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(17),
                 Name = "3674-6906"
             };
             fda.AddOrUpdateFlight(flight);
@@ -264,8 +264,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 517,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(3),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(3),
                 Name = "3674-6906"
             };
             fda.AddOrUpdateFlight(flight);
@@ -285,8 +285,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 306,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(3),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(3),
                 Name = "7472-1103"
             };
             fda.AddOrUpdateFlight(flight);
@@ -306,8 +306,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 200,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(1),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(1),
                 Name = "4630-3392"
             };
             fda.AddOrUpdateFlight(flight);
@@ -327,8 +327,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 527,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(4),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(4),
                 Name = "1716-5534"
             };
             fda.AddOrUpdateFlight(flight);
@@ -348,8 +348,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 1035,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(8),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(8),
                 Name = "3694-7540"
             };
             fda.AddOrUpdateFlight(flight);
@@ -369,8 +369,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 944,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(7),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(7),
                 Name = "3544-6575"
             };
             fda.AddOrUpdateFlight(flight);
@@ -390,8 +390,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 270,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(4),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(4),
                 Name = "4026-6869"
             };
             fda.AddOrUpdateFlight(flight);
@@ -411,8 +411,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 263,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(4),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(4),
                 Name = "6981-7592"
             };
             fda.AddOrUpdateFlight(flight);
@@ -432,8 +432,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 1346,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(8),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(8),
                 Name = "7458-3563"
             };
             fda.AddOrUpdateFlight(flight);
@@ -453,8 +453,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 1958,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(23),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(23),
                 Name = "3182-3674"
             };
             fda.AddOrUpdateFlight(flight);
@@ -474,8 +474,8 @@ namespace UnitTestProject1
                 DestinationAirportId = air2.Id,
                 Price = 387,
                 Status = true,
-                DepartureTime = DateTime.Now,
-                ArrivalTime = DateTime.Now.AddHours(5),
+                DepartureTime = DateTime.Now.AddDays(3),
+                ArrivalTime = DateTime.Now.AddDays(3).AddHours(5),
                 Name = "3566-7436"
             };
             fda.AddOrUpdateFlight(flight);

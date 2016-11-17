@@ -2,7 +2,36 @@
     ViewBag.Title = "Home Page";
 }
 @model SoftwareEngineeringP1.Models.SearchPageForm
-    
+  
+<br />
+@if (User.IsInRole("Admin"))
+{
+    <form method="post" id="addFlightForm" action="/Home/AddFlights">
+        <div class="row">
+            @* This is a section of the page that only the Admin can see to make inputs to add a new flight. *@
+                <div class="form-group col-md-3">
+                    Starting Id Number:
+                    <input type="text" class="form-control " id="startingIdNumber" name="startingIdNumber" placeholder="Starting Id Number"/>
+                </div>
+                <div class="form-group col-md-3">
+                    Ending Id Number:
+                    <input type="text" class="form-control" id="endingIdNumber" name="endingIdNumber" placeholder="Ending Id Number"/>
+                </div>
+                <div class="form-group col-md-2">
+                    Flight Time:
+                    <input type="text" class="form-control" id="newFlightTime" name="time" placeholder="Flight Time"/>
+                </div>
+                <div class="form-group col-md-2">
+                    Price:
+                    <input type="text" class="form-control" id="newFlightPrice" name="price" placeholder="New Flight Price"/>
+                </div>
+            <div class="form-group col-md-2 bottom">
+                <button type="submit" class="btn btn-primary">Add Flight</button>
+            </div>
+        </div>
+    </form>
+}
+
 <div id="flightViewContainer"></div>
 <form method="post" id="searchForm">
     <div class="row">

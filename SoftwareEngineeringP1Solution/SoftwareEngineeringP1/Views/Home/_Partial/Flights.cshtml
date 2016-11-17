@@ -1,7 +1,8 @@
 ﻿@model List<SoftwareEngineeringP1.Models.Flight>
 
-<div class="table">
-    <table class="table table-striped">
+<div>
+    <table class="table table-striped" id="header-table">
+        
         <tr class="">
             <td><b>Name</b></td>
             <td><b>Departure</b></td>
@@ -10,6 +11,12 @@
             <td><b>Arrival Time</b></td>
             <td><b>Price</b></td>
             <td></td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td><b>Edit</b></td>
+                <td></td>
+                
+            }
         </tr>
         @foreach (var flight in Model)
         {
@@ -21,6 +28,13 @@
                 <td>@flight.ArrivalTime</td>
                 <td>$@flight.Price</td>
                 <td><button data-id="@flight.Id" class="btn btn-default flightClickAction">View</button></td>
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    <td> <button data-id="@flight.Id" title="" type="button" class="btn btn-danger" data-original-title="Remove from list"><i class="glyphicon glyphicon-trash"></i></button></td>
+                    <td></td>
+                }
+               
             </tr>
         }
     </table>
@@ -31,6 +45,7 @@
     $(document).ready(function () {
 
         // Click function for redirecting to the flight when a row is clicked on.
+        $('.flightClickAction').off();
         $('.flightClickAction').on('click', function (event) {
             event.preventDefault();
             var id = $(this).attr('data-id');
@@ -45,6 +60,25 @@
                 }
             });
         });
+
+        $(".btn-danger").off();
+        $('.btn-danger').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/DeleteFlights",
+                data: "flightID=" + id,
+                method: "POST",
+                success: function () {
+                    
+                }
+            });
+        });
+
+        $("table#header-table").on("click", ".btn-danger", function () {
+            $(this).closest('tr').remove();
+        });
+        
     });
 
     // AJAX handle for binding the on click function for editing flights. 
@@ -81,6 +115,24 @@
                 }
             });
         });
+
+        $("table#header-table").on("click", ".btn-danger", function () {
+            $(this).closest('tr').remove();
+        });
+
+        $('.btn-danger').off();
+        $('.btn-danger').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                url: "/Home/DeleteFlights",
+                data: "flightID=" + id,
+                method: "POST",
+                success: function () {
+
+                }
+            });
+        }); 
     }
 
 </script>

@@ -34,6 +34,15 @@ namespace SoftwareEngineeringP1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult AddFlights(AddFlightForm form)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            fda.addFlight(form.startingIdNumber, form.endingIdNumber, form.time, form.price);
+            return RedirectToAction("Index", "Home");
+        }
+
+
         public ActionResult AllFlights()
         {
             FlightDataAccess fda = new FlightDataAccess();
@@ -46,7 +55,6 @@ namespace SoftwareEngineeringP1.Controllers
             var model = fda.GetAllFlights();
             return View(flights);
         }
-
 
 
         #region |  Reserved for AJAX Method for inserting data.  |
@@ -110,6 +118,14 @@ namespace SoftwareEngineeringP1.Controllers
             FlightDataAccess fda = new FlightDataAccess();
 
             fda.AddOrUpdateFlight(flight);
+        }
+
+        [HttpPost]
+        //[Authorize(Roles = "Admin")]
+        public void DeleteFlights(int flightID)
+        {
+            FlightDataAccess fda = new FlightDataAccess();
+            fda.DeleteFlights(flightID);
         }
 
         #endregion
